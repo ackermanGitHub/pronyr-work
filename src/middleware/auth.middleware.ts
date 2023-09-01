@@ -28,11 +28,11 @@ export class AuthMiddleware implements NestMiddleware {
 					}
 				});
 		} else {
-			this.auth.getUserByEmail("jlpz3921@gmail.com").then(async decodedToken => {
-				req["user"] = decodedToken;
-				console.log("decodedToken", decodedToken);
-				next();
-			});
+			req["user"] = {
+				uid: "4bNzbQ5A5ugbgn9yV1YQSX23zNg2",
+				email: "test@gmail.com",
+			};
+			next();
 			// AuthMiddleware.accessDenied(req.url, res, new Error("No token provided"));
 		}
 	}
